@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="OpenWeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="changeCityButton" destination="wKH-92-0Xy" id="QWu-eo-yGh"/>
+                <outlet property="currentCityLabel" destination="yvS-kg-kdB" id="XFP-Tb-sKg"/>
+                <outlet property="unitSegementedControl" destination="6YX-UQ-BwY" id="stT-5y-yXD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ht-SH-ncZ">
+                    <rect key="frame" x="170" y="66" width="74.5" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4z-OJ-Tts">
+                    <rect key="frame" x="20" y="56" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Txe-eX-Qbu"/>
+                        <constraint firstAttribute="width" constant="16" id="n1t-1y-sq0"/>
+                    </constraints>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="didTapCloseButton:" destination="-1" eventType="touchUpInside" id="2sg-Bs-ljW"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvS-kg-kdB">
+                    <rect key="frame" x="20" y="122" width="32.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKH-92-0Xy">
+                    <rect key="frame" x="339" y="117.5" width="55" height="30"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="Change"/>
+                    <connections>
+                        <action selector="didTapChangeButton:" destination="-1" eventType="touchUpInside" id="zI3-GM-3kc"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6YX-UQ-BwY">
+                    <rect key="frame" x="225" y="186" width="169" height="32"/>
+                    <segments>
+                        <segment title="Celsius"/>
+                        <segment title="Fahrenheit"/>
+                    </segments>
+                    <color key="selectedSegmentTintColor" red="0.044979862868785858" green="0.53671425580978394" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="unitDidChange:" destination="-1" eventType="valueChanged" id="dmI-Uk-7gw"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit of measure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihX-Eh-84T">
+                    <rect key="frame" x="20" y="191" width="127" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wKH-92-0Xy" secondAttribute="trailing" constant="20" id="04d-dd-Vrs"/>
+                <constraint firstItem="ihX-Eh-84T" firstAttribute="centerY" secondItem="6YX-UQ-BwY" secondAttribute="centerY" id="1e3-M6-CWb"/>
+                <constraint firstItem="wKH-92-0Xy" firstAttribute="centerY" secondItem="yvS-kg-kdB" secondAttribute="centerY" id="Ahx-7E-0bF"/>
+                <constraint firstItem="6YX-UQ-BwY" firstAttribute="top" secondItem="wKH-92-0Xy" secondAttribute="bottom" constant="38.5" id="Bau-Um-3Q3"/>
+                <constraint firstItem="y4z-OJ-Tts" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hof-7g-rHE"/>
+                <constraint firstItem="ihX-Eh-84T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="a9k-Lp-b52"/>
+                <constraint firstItem="y4z-OJ-Tts" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="eTr-VB-Q9W"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6YX-UQ-BwY" secondAttribute="trailing" constant="20" id="fgG-ov-QlD"/>
+                <constraint firstItem="5ht-SH-ncZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="22" id="ic3-uG-UaJ"/>
+                <constraint firstItem="yvS-kg-kdB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mLo-rt-4oV"/>
+                <constraint firstItem="5ht-SH-ncZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="z7V-VU-sRg"/>
+                <constraint firstItem="yvS-kg-kdB" firstAttribute="top" secondItem="5ht-SH-ncZ" secondAttribute="bottom" constant="33" id="zy9-U7-Pji"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="150"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close" width="512" height="512"/>
+    </resources>
+</document>
