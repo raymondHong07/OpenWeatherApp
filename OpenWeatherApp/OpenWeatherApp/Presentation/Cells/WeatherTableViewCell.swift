@@ -28,13 +28,14 @@ class WeatherTableViewCell: UITableViewCell {
         
         let temperature = Int(weather.forecast.temp ?? 0)
         let feelsLikeTemperature = Int(weather.forecast.feelsLike ?? 0)
+        let humidity = weather.forecast.humidity ?? 0
         
         dayOfWeekLabel.text = DateHelper.getDateFrom(weather.date, type: .dayOfWeek)
         dateLabel.text = DateHelper.getDateFrom(weather.date, type: .monthAndDay)
         
         temperatureLabel.text = String(format: "%d°", temperature)
         feelsLikeLabel.text = String(format: "Feels like %d°", feelsLikeTemperature)
-        humidityLabel.text = String(format: "Humidity %d%%", weather.forecast.humidity ?? 0)
+        humidityLabel.text = String(format: "Humidity %d%%", humidity)
         
         descriptionLabel.text = weather.weatherDescription.first?.description ?? ""
         getImage(for: weather)
