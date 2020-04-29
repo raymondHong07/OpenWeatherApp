@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
     
     private let openWeatherManager = OpenWeatherManager.sharedInstance
+    private let locationManager = LocationManager()
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var noResultsLabel: UILabel!
@@ -20,13 +22,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setUpTableView()
-        getWeather()
+        locationManager.setUp(with: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         cityLabel.text = openWeatherManager.city
+    }
+    
+    private func getUserLocation() {
+        
+        if let currentLocation = locationManager.currentLocation {
+            
+            locationManager.getLocation(for: currentLocation) { (placemark) in
+               
+               if let currentLocation = placemark,
+                   let city = currentLocation.locality {
+                    
+                    self.cityLabel.text = city
+                    self.openWeatherManager.city = city
+                    self.getWeather()
+               }
+           }
+        } else {
+            
+            getWeather()
+        }
     }
     
     private func setUpTableView() {
@@ -69,6 +91,15 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        status == .authorizedWhenInUse ? getUserLocation() : getWeather()
     }
 }
 
